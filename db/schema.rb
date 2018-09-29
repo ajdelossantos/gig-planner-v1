@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_29_200644) do
+ActiveRecord::Schema.define(version: 2018_09_29_205503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,70 @@ ActiveRecord::Schema.define(version: 2018_09_29_200644) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "annotations", force: :cascade do |t|
+    t.json "payload"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "annotations_pieces", id: false, force: :cascade do |t|
+    t.bigint "piece_id", null: false
+    t.bigint "annotation_id", null: false
+  end
+
   create_table "bands", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.index ["name"], name: "index_bands_on_name", unique: true
+  end
+
+  create_table "bands_gigs", id: false, force: :cascade do |t|
+    t.bigint "band_id", null: false
+    t.bigint "gig_id", null: false
+  end
+
+  create_table "bands_pieces", id: false, force: :cascade do |t|
+    t.bigint "band_id", null: false
+    t.bigint "piece_id", null: false
+  end
+
+  create_table "bands_set_lists", id: false, force: :cascade do |t|
+    t.bigint "band_id", null: false
+    t.bigint "set_list_id", null: false
+  end
+
+  create_table "gigs", force: :cascade do |t|
+    t.string "name", null: false
+    t.json "payload"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_gigs_on_name", unique: true
+  end
+
+  create_table "gigs_set_lists", id: false, force: :cascade do |t|
+    t.bigint "gig_id", null: false
+    t.bigint "set_list_id", null: false
+  end
+
+  create_table "pieces", force: :cascade do |t|
+    t.string "title", null: false
+    t.json "payload"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_pieces_on_title", unique: true
+  end
+
+  create_table "pieces_set_lists", id: false, force: :cascade do |t|
+    t.bigint "set_list_id", null: false
+    t.bigint "piece_id", null: false
+  end
+
+  create_table "set_lists", force: :cascade do |t|
+    t.string "name", null: false
+    t.json "payload"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_set_lists_on_name", unique: true
   end
 
 end
