@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: pieces
+#
+#  id         :bigint(8)        not null, primary key
+#  title      :string           not null
+#  payload    :json
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Piece < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: true

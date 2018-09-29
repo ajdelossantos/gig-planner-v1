@@ -290,4 +290,10 @@ ActiveAdmin.setup do |config|
   # You can inherit it with own class and inject it for all resources
   #
   # config.order_clause = MyOrderClause
+
+  # Include styles in "active_admin" initializer
+  config.register_stylesheet 'active_admin/json_editor.css'
+  
+  # Include javascripts in "active_admin" initializer
+  config.register_javascript 'active_admin/json_editor.js'
 end
