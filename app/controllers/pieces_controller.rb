@@ -1,0 +1,2 @@
+class PiecesController < APIController
+end

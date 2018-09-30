@@ -1,0 +1,2 @@
+class SetListsController < APIController
+end

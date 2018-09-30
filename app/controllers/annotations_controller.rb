@@ -1,0 +1,2 @@
+class AnnotationsController < APIController
+end
