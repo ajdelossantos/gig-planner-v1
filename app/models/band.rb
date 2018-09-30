@@ -16,5 +16,19 @@ class Band < ApplicationRecord
   has_many :gigs
   has_many :set_lists
   has_many :pieces
-  
+
+  # Outputs JSON for band#show page
+  def format_band_metadata
+    {
+      self.id => {
+      :id => self.id,
+      :name => self.name,
+      :description => self.description,
+      :gigs => self.gigs,
+      :set_lists => self.set_lists,
+      :pieces => self.pieces
+      }
+    }
+  end
+
 end
