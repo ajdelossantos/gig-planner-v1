@@ -20,14 +20,12 @@ class Piece < ApplicationRecord
 
   def stringify_piece_metadata
     piece_metadata = {
-      self.id => {
-        :id => self.id,
-        :BandID => self.band_id,
-        :title => self.title,
-        :setLists => self.set_lists,
-        :payload => self.payload,
-        :annotations => self.annotations.map {|annotation| annotation.stringify_annotation_metadata}
-      }
+      :id => self.id,
+      :BandID => self.band_id,
+      :title => self.title,
+      :setLists => self.set_lists,
+      :payload => self.payload,
+      :annotations => self.annotations.map {|annotation| annotation.stringify_annotation_metadata}
     }
 
     piece_metadata

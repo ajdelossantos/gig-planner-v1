@@ -20,14 +20,11 @@ class SetList < ApplicationRecord
 
   def stringify_set_list_metadata
     set_list_metadata = {
-      self.id => {
         :id => self.id,
         :BandID => self.band_id,
         :name => self.name,
         :gigs => self.gigs,
         :pieces => self.pieces,
-        :payload => self.payload
-      }
     }
 
     set_list_metadata

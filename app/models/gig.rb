@@ -19,13 +19,11 @@ class Gig < ApplicationRecord
   
   def stringify_gig_metadata
     gig_metadata = {
-      self.id => {
-        :id => self.id,
-        :bandID => self.band_id,
-        :name => self.name,
-        :setLists => self.set_lists,
-        :payload => self.payload
-      }
+      :id => self.id,
+      :bandID => self.band_id,
+      :name => self.name,
+      :setLists => self.set_lists,
+      :payload => self.payload
     }
 
     gig_metadata
