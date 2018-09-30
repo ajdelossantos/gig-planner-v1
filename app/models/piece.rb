@@ -18,4 +18,17 @@ class Piece < ApplicationRecord
   has_many :annotations
   has_and_belongs_to_many :set_lists
 
+  def stringify_piece_metadata
+    piece_metadata = {
+      self.id => {
+        :id => self.id,
+        :BandID => self.band_id,
+        :title => self.title,
+        :payload => self.payload
+      }
+    }
+
+    piece_metadata
+  end
+
 end

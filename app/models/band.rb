@@ -18,17 +18,19 @@ class Band < ApplicationRecord
   has_many :pieces
 
   # Outputs JSON for band#show page
-  def format_band_metadata
-    {
+  def stringify_band_metadata
+    band_metadata = {
       self.id => {
       :id => self.id,
       :name => self.name,
       :description => self.description,
-      :gigs => self.gigs,
-      :set_lists => self.set_lists,
-      :pieces => self.pieces
+      :gigs => self.gigs.map {|gig| gig.stringify_gig_metadata},
+      :setLists => self.set_lists.map {|set_list| set_list.stringify_set_list_metadata},
+      :pieces => self.pieces.map {|piece| piece.stringify_piece_metadata}
       }
     }
+
+    band_metadata
   end
 
 end

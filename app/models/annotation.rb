@@ -11,4 +11,16 @@
 
 class Annotation < ApplicationRecord
   belongs_to :piece
+
+  def stringify_annotation_metadata
+    annotation_metadata = {
+      self.id => {
+        :id => self.id,
+        :pieceID => self.piece_id,
+        :payload => self.payload
+      }
+    }
+
+    annotation_metadata.to_json
+  end
 end

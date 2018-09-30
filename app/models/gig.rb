@@ -17,4 +17,16 @@ class Gig < ApplicationRecord
   belongs_to :band
   has_and_belongs_to_many :set_lists
   
+  def stringify_gig_metadata
+    gig_metadata = {
+      self.id => {
+        :id => self.id,
+        :bandID => self.band_id,
+        :name => self.name,
+        :payload => self.payload
+      }
+    }
+
+    gig_metadata
+  end
 end

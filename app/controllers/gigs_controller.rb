@@ -6,6 +6,6 @@ class GigsController < APIController
 
   def show
     @gig = Gig.find(params[:id])
-    render json: @gig.to_json
+    render json: @gig.stringify_gig_metadata.to_json
   end
 end

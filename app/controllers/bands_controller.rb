@@ -6,6 +6,6 @@ class BandsController < APIController
 
   def show
     @band = Band.find(params[:id])
-    render json: @band.format_band_metadata.to_json
+    render json: @band.stringify_band_metadata.to_json
   end
 end

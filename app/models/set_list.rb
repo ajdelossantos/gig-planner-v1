@@ -18,4 +18,17 @@ class SetList < ApplicationRecord
   has_and_belongs_to_many :gigs
   has_and_belongs_to_many :pieces
 
+  def stringify_set_list_metadata
+    set_list_metadata = {
+      self.id => {
+        :id => self.id,
+        :BandID => self.band_id,
+        :name => self.name,
+        :payload => self.payload
+      }
+    }
+
+    set_list_metadata
+  end
+
 end

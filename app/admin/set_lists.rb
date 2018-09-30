@@ -1,4 +1,4 @@
-ActiveAdmin.register Gig do
+ActiveAdmin.register SetList do
   permit_params :name, :band_id, :payload
 
   json_editor
@@ -12,4 +12,5 @@ ActiveAdmin.register Gig do
 
     f.actions
   end
+
 end
