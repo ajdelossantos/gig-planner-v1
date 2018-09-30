@@ -6,7 +6,11 @@ ActiveAdmin.register SetList do
   form do |f|
     f.inputs do
       f.input :name
-      f.input :band_id, :label => "BandID"
+      f.input :band_id, {
+        label: "BandID",
+        as: :select,
+        collection: Band.all.collect {|band| "#{band.id}: #{band.name}"}
+      }
       f.input :payload, as: :json
     end
 

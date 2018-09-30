@@ -23,6 +23,7 @@ class Gig < ApplicationRecord
         :id => self.id,
         :bandID => self.band_id,
         :name => self.name,
+        :setLists => self.set_lists,
         :payload => self.payload
       }
     }

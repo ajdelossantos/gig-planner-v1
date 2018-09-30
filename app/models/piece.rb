@@ -24,7 +24,9 @@ class Piece < ApplicationRecord
         :id => self.id,
         :BandID => self.band_id,
         :title => self.title,
-        :payload => self.payload
+        :set_lists => self.set_lists,
+        :payload => self.payload,
+        # :annotations => self.annotations
       }
     }
 

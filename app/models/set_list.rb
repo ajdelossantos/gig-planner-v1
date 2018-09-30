@@ -24,6 +24,8 @@ class SetList < ApplicationRecord
         :id => self.id,
         :BandID => self.band_id,
         :name => self.name,
+        :gigs => self.gigs,
+        :pieces => self.pieces,
         :payload => self.payload
       }
     }

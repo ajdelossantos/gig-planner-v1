@@ -5,7 +5,11 @@ ActiveAdmin.register Annotation do
 
   form do |f|
     f.inputs do
-      f.input :piece_id, :label => "PieceID"
+      f.input :piece_id, {
+        label: "PieceID",
+        as: :select,
+        collection: Piece.all.collect {|piece| "#{piece.id}: #{piece.title}"}
+      }
       f.input :payload, as: :json
     end
 
