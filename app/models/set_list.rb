@@ -33,4 +33,20 @@ class SetList < ApplicationRecord
     set_list_metadata
   end
 
+  def add_gig(gig)
+    self.gigs << gig
+  end
+
+  def remove_gig(gig)
+    self.gigs.delete(gig)
+  end
+
+  def add_piece(piece)
+    self.pieces << piece
+  end
+
+  def remove_piece(piece)
+    self.pieces.delete(piece)
+  end
+
 end

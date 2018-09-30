@@ -21,6 +21,6 @@ class Annotation < ApplicationRecord
       }
     }
 
-    annotation_metadata.to_json
+    annotation_metadata
   end
 end

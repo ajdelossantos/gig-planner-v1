@@ -24,13 +24,21 @@ class Piece < ApplicationRecord
         :id => self.id,
         :BandID => self.band_id,
         :title => self.title,
-        :set_lists => self.set_lists,
+        :setLists => self.set_lists,
         :payload => self.payload,
-        # :annotations => self.annotations
+        :annotations => self.annotations.map {|annotation| annotation.stringify_annotation_metadata}
       }
     }
 
     piece_metadata
+  end
+
+  def add_set_list(set_list)
+    self.set_lists << set_list
+  end
+
+  def remove_set_list(set_list)
+    self.set_lists.delete(set_list)
   end
 
 end

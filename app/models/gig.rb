@@ -30,4 +30,12 @@ class Gig < ApplicationRecord
 
     gig_metadata
   end
+
+  def add_set_list(set_list)
+    self.set_lists << set_list
+  end
+
+  def remove_set_list(set_list)
+    self.set_lists.delete(set_list)
+  end
 end
