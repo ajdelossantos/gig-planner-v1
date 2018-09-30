@@ -3,6 +3,7 @@ class CreateSetLists < ActiveRecord::Migration[5.2]
     create_table :set_lists do |t|
       t.string :name, null: false
       t.json :payload
+      t.bigint :band_id, null: false
 
       t.timestamps
     end

@@ -3,6 +3,7 @@ class CreateGigs < ActiveRecord::Migration[5.2]
     create_table :gigs do |t|
       t.string :name, null: false
       t.json :payload
+      t.bigint :band_id, null: false
 
       t.timestamps
     end

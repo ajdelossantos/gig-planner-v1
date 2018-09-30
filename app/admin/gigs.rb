@@ -1,5 +1,5 @@
 ActiveAdmin.register Gig do
-  permit_params :name, :payload
+  permit_params :name, :payload, :band_id
 
   json_editor
 
@@ -7,6 +7,7 @@ ActiveAdmin.register Gig do
     f.inputs do
       f.input :name
       f.input :payload, as: :json
+      f.input :band_id
     end
 
     f.actions
