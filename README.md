@@ -1,24 +1,30 @@
-# README
+# Gig Planner - v1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A tool to help bands organize their gigs. Create a band, add pieces to your repertoire, and organize them into sets and gigs.
 
-Things you may want to cover:
+A React on Rails project: Rails API-only, PostgreSQL, React, and ActiveAdmin.
 
-* Ruby version
+## Installation
 
-* System dependencies
+1. Clone the repo
+2. Navigate to the project directory and enter in the following shell commands
 
-* Configuration
+```
+bundle install
+rails db:setup
+rails db:seed
 
-* Database creation
+cd client
 
-* Database initialization
+npm install
 
-* How to run the test suite
+rails s -p 3001
+npm run start
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+3. In browser, navigate to http://localhost:3001/admin to access admin panel
 
-* Deployment instructions
+- username: admin@example.com
+- password: password
 
-* ...
+4. In browser, navigate to http://localhost:3000/ to see the app
