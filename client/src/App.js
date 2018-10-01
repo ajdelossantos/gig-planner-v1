@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
 import 'typeface-roboto';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { debugBorder } from './styles/debugBorder';
+import GigIndex from './components/GigIndex';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
   componentDidMount() {
     window
       .fetch('/api/bands/1')
@@ -18,28 +20,27 @@ class App extends Component {
       })
       .catch(error => console.log(error));
   }
+
   render() {
     if (this.state[1]) {
       console.log(this.state[1]);
       const { name, description, gigs, pieces, setLists } = this.state[1];
       return (
-        <div className="App">
-          <h2>{name}</h2>
-          <p>{description}</p>
+        <div>
+          <div style={debugBorder}>
+            <h2>{name}</h2>
+            <p>{description}</p>
+          </div>
 
-          <ul>
-            {gigs.map(gig => (
-              <li key={`gig-${gig.id}`}>{gig.name}</li>
-            ))}
-          </ul>
+          <GigIndex gigs={gigs} />
 
-          <ul>
+          <ul style={debugBorder}>
             {setLists.map(setList => (
               <li key={`setList-${setList.id}`}>{setList.name}</li>
             ))}
           </ul>
 
-          <ul>
+          <ul style={debugBorder}>
             {pieces.map(piece => (
               <li key={`piece-${piece.id}`}>{piece.title}</li>
             ))}
