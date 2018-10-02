@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PayloadTable from './PayloadTable';
 
-class GigIndexItem extends Component {
-  render() {
-    const { id, name, payload } = this.props.gig;
+const GigIndexItem = props => {
+  const { id, name, payload } = props.gig;
 
-    return (
-      <ul>
-        <li>{name}</li>
-        {Object.keys(payload).map(key => (
-          <li key={`gig-data-${id}`}>{`${key}: ${payload.key}`}</li>
-        ))}
-      </ul>
-    );
-  }
-}
+  return (
+    <li key={`gig-data-${id}`}>
+      <h3>{name}</h3>
+      <PayloadTable payload={payload} gigID={id} />
+    </li>
+  );
+};
 
 export default GigIndexItem;
