@@ -2,26 +2,28 @@ import React from 'react';
 import PayloadTable from './PayloadTable';
 import { debugBorder } from '../styles/debugBorder';
 
-const GigIndexItem = props => {
-  const { id, name, payload, setLists } = props.gig;
-
+const SetListIndexItem = props => {
+  const { id, name, pieces, payload } = props.setList;
   return (
     <li style={debugBorder}>
       <h3>{name}</h3>
+
       <p>
-        <em>Sets:</em>
+        <em>Pieces:</em>
       </p>
+
       <ul>
-        {setLists.map(setList => (
-          <li key={`gig${id}-setList${setList[0]}`}>
-            {`${setList[1]} (set_id: ${setList[0]})`}
+        {pieces.map(piece => (
+          <li key={`gig${id}-piece${piece[0]}`}>
+            {`${piece[1]} (set_id: ${piece[0]})`}
           </li>
         ))}
       </ul>
       <br />
+
       <PayloadTable payload={payload} foreignKeyID={id} />
     </li>
   );
 };
 
-export default GigIndexItem;
+export default SetListIndexItem;

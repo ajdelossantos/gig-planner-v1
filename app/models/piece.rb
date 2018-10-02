@@ -23,7 +23,7 @@ class Piece < ApplicationRecord
       :id => self.id,
       :BandID => self.band_id,
       :title => self.title,
-      :setLists => self.set_lists,
+      :setLists => self.set_lists.pluck(:id, :name),
       :payload => self.payload,
       :annotations => self.annotations.map {|annotation| annotation.stringify_annotation_metadata}
     }

@@ -3,7 +3,9 @@ import 'typeface-roboto';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Header from './components/Header';
 import { debugBorder } from './styles/debugBorder';
+
 import GigIndex from './components/GigIndex';
+import SetListIndex from './components/SetListIndex';
 
 class App extends Component {
   constructor(props) {
@@ -35,6 +37,8 @@ class App extends Component {
           </div>
 
           <GigIndex gigs={gigs} />
+
+          <SetListIndex setLists={setLists} />
 
           <ul style={debugBorder}>
             {setLists.map(setList => (

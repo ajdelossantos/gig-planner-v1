@@ -22,18 +22,22 @@ class Gig < ApplicationRecord
       :id => self.id,
       :bandID => self.band_id,
       :name => self.name,
-      :setLists => self.set_lists,
+      :setLists => self.set_lists.pluck(:id, :name),
       :payload => self.payload
     }
 
     gig_metadata
   end
 
-  def add_set_list(set_list)
+  def add_set_list(set_list_id)
+    set_list = SetList.find(set_list_id)
+
     self.set_lists << set_list
   end
 
-  def remove_set_list(set_list)
+  def remove_set_list(set_list_id)
+    set_list = SetList.find(set_list_id)
+
     self.set_lists.delete(set_list)
   end
 end

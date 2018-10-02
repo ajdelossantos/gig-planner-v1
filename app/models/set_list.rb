@@ -23,8 +23,9 @@ class SetList < ApplicationRecord
         :id => self.id,
         :BandID => self.band_id,
         :name => self.name,
-        :gigs => self.gigs,
-        :pieces => self.pieces,
+        :payload => self.payload,
+        :gigs => self.gigs.pluck(:id, :name),
+        :pieces => self.pieces.pluck(:id, :title),
     }
 
     set_list_metadata
@@ -38,11 +39,15 @@ class SetList < ApplicationRecord
     self.gigs.delete(gig)
   end
 
-  def add_piece(piece)
+  def add_piece(piece_id)
+    piece = piece.find(piece_id)
+
     self.pieces << piece
   end
 
-  def remove_piece(piece)
+  def remove_piece(piece_id)
+    piece = piece.find(piece_id)
+    
     self.pieces.delete(piece)
   end
 
