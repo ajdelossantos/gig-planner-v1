@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'typeface-roboto';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import Header from './components/Header';
 import { debugBorder } from './styles/debugBorder';
 import GigIndex from './components/GigIndex';
 
@@ -27,6 +28,7 @@ class App extends Component {
       const { name, description, gigs, pieces, setLists } = this.state[1];
       return (
         <div>
+          <Header />
           <div style={debugBorder}>
             <h2>{name}</h2>
             <p>{description}</p>

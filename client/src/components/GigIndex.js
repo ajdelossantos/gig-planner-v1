@@ -1,18 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import GigIndexItem from './GigIndexItem';
 import { debugBorder } from '../styles/debugBorder';
 
-class GigIndex extends Component {
-  render() {
-    return (
-      <div style={debugBorder}>
-        <h3>Gig Index</h3>
-        {this.props.gigs.map(gig => (
+const GigIndex = props => {
+  const { gigs } = props;
+
+  return (
+    <div style={debugBorder}>
+      <h2>Gig Index</h2>
+
+      <ul>
+        {gigs.map(gig => (
           <GigIndexItem gig={gig} key={`gigID-${gig.id}`} />
         ))}
-      </div>
-    );
-  }
-}
+      </ul>
+    </div>
+  );
+};
 
 export default GigIndex;
