@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'typeface-roboto';
+// import 'typeface-roboto';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Header from './components/Header';
 import { debugBorder } from './styles/debugBorder';
@@ -14,21 +14,21 @@ class App extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    window
-      .fetch('/api/bands/1')
-      .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        this.setState(json);
-      })
-      .catch(error => console.log(error));
+  async componentDidMount() {
+    try {
+      const response = await fetch('/api/bands/1');
+      if (!response.ok) throw Error(response.statusText);
+      const json = await response.json();
+      this.setState({ data: json });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   render() {
-    if (this.state[1]) {
-      console.log(this.state[1]);
-      const { name, description, gigs, pieces, setLists } = this.state[1];
+    if (this.state.data) {
+      console.log(this.state.data);
+      const { name, description, gigs, pieces, setLists } = this.state.data;
       return (
         <div>
           <Header />
