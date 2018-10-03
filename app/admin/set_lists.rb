@@ -1,5 +1,5 @@
 ActiveAdmin.register SetList do
-  permit_params :name, :band_id, :payload
+  permit_params :name, :band_id, :payload, gig_ids: [], piece_ids: []
 
   json_editor
 
@@ -11,6 +11,8 @@ ActiveAdmin.register SetList do
         as: :select,
         collection: Band.all.collect {|band| "#{band.id}: #{band.name}"}
       }
+      f.input :gigs
+      f.input :pieces
       f.input :payload, as: :json
     end
 

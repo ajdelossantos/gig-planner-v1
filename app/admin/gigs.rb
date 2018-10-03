@@ -1,5 +1,5 @@
 ActiveAdmin.register Gig do
-  permit_params :name, :band_id, :payload
+  permit_params :name, :band_id, :payload, set_list_ids: []
 
   json_editor
 
@@ -11,6 +11,7 @@ ActiveAdmin.register Gig do
         as: :select,
         collection: Band.all.collect {|band| "#{band.id}: #{band.name}"}
       }
+      f.input :set_lists
       f.input :payload, as: :json
     end
 

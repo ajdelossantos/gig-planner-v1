@@ -41,12 +41,6 @@ class App extends Component {
           <SetListIndex setLists={setLists} />
 
           <ul style={debugBorder}>
-            {setLists.map(setList => (
-              <li key={`setList-${setList.id}`}>{setList.name}</li>
-            ))}
-          </ul>
-
-          <ul style={debugBorder}>
             {pieces.map(piece => (
               <li key={`piece-${piece.id}`}>{piece.title}</li>
             ))}
