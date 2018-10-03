@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 // import 'typeface-roboto';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Header from './components/Header';
-import { debugBorder } from './styles/debugBorder';
 
-import GigIndex from './components/GigIndex';
-import SetListIndex from './components/SetListIndex';
-import PieceIndex from './components/PieceIndex';
+import BandIndex from './components/BandIndex';
+
+const loadingStyle = {
+  width: '100%',
+  height: 900,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center'
+};
 
 class App extends Component {
   constructor(props) {
@@ -19,33 +24,29 @@ class App extends Component {
       const response = await fetch('/api/bands/1');
       if (!response.ok) throw Error(response.statusText);
       const json = await response.json();
-      this.setState({ data: json });
+      this.setState({ bandData: json });
     } catch (error) {
       console.log(error);
     }
   }
 
   render() {
-    if (this.state.data) {
-      const { name, description, gigs, pieces, setLists } = this.state.data;
-
+    if (this.state.bandData) {
       return (
         <div>
           <Header />
-          <div style={debugBorder}>
-            <h2>{name}</h2>
-            <p>{description}</p>
-          </div>
-
-          <GigIndex gigs={gigs} />
-
-          <SetListIndex setLists={setLists} />
-
-          <PieceIndex pieces={pieces} />
+          <BandIndex bandData={this.state.bandData} />
         </div>
       );
     } else {
-      return <CircularProgress />;
+      return (
+        <div>
+          <Header />
+          <div style={loadingStyle}>
+            <CircularProgress />
+          </div>
+        </div>
+      );
     }
   }
 }

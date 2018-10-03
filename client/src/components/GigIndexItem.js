@@ -1,5 +1,6 @@
 import React from 'react';
 import PayloadTable from './PayloadTable';
+import Card from '@material-ui/core/Card';
 import { debugBorder } from '../styles/debugBorder';
 
 const GigIndexItem = props => {
