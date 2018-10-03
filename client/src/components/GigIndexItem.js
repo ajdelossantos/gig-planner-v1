@@ -14,7 +14,7 @@ const GigIndexItem = props => {
       <ul>
         {setLists.map(setList => (
           <li key={`gig${id}-setList${setList[0]}`}>
-            {`${setList[1]} (set_id: ${setList[0]})`}
+            {`${setList[1]}`} <em>{`( set_id: ${setList[0]})`}</em>
           </li>
         ))}
       </ul>
