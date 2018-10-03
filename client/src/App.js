@@ -6,6 +6,7 @@ import { debugBorder } from './styles/debugBorder';
 
 import GigIndex from './components/GigIndex';
 import SetListIndex from './components/SetListIndex';
+import PieceIndex from './components/PieceIndex';
 
 class App extends Component {
   constructor(props) {
@@ -40,11 +41,7 @@ class App extends Component {
 
           <SetListIndex setLists={setLists} />
 
-          <ul style={debugBorder}>
-            {pieces.map(piece => (
-              <li key={`piece-${piece.id}`}>{piece.title}</li>
-            ))}
-          </ul>
+          <PieceIndex pieces={pieces} />
         </div>
       );
     } else {
