@@ -27,8 +27,8 @@ class App extends Component {
 
   render() {
     if (this.state.data) {
-      console.log(this.state.data);
       const { name, description, gigs, pieces, setLists } = this.state.data;
+
       return (
         <div>
           <Header />
