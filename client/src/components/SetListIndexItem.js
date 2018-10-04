@@ -13,11 +13,14 @@ const SetListIndexItem = props => {
       </p>
 
       <ul>
-        {pieces.map(piece => (
-          <li key={`gig${id}-piece${piece[0]}`}>
-            {`${piece[1]}`} <em>{` ( piece_id: ${piece[0]} )`}</em>
-          </li>
-        ))}
+        {pieces.map(piece => {
+          const [pieceID, pieceName] = piece;
+          return (
+            <li key={`gig${id}-piece${piece[0]}`}>
+              {`${pieceName}`} <em>{` ( piece_id: ${pieceID} )`}</em>
+            </li>
+          );
+        })}
       </ul>
       <br />
 

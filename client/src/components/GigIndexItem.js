@@ -13,11 +13,14 @@ const GigIndexItem = props => {
         <em>Sets:</em>
       </p>
       <ul>
-        {setLists.map(setList => (
-          <li key={`gig${id}-setList${setList[0]}`}>
-            {`${setList[1]}`} <em>{`( set_id: ${setList[0]})`}</em>
-          </li>
-        ))}
+        {setLists.map(setList => {
+          const [setName, setId] = setList;
+          return (
+            <li key={`gig${id}-setList${setList[0]}`}>
+              {`${setId}`} <em>{`( set_id: ${setName})`}</em>
+            </li>
+          );
+        })}
       </ul>
       <br />
       <PayloadTable payload={payload} foreignKeyID={id} />
