@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import 'typeface-roboto';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Header from './components/Header';
-
+import BandProvider from './BandProvider';
 import BandIndex from './components/BandIndex';
 
 const loadingStyle = {
@@ -34,8 +34,10 @@ class App extends Component {
     if (this.state.bandData) {
       return (
         <div>
-          <Header />
-          <BandIndex bandData={this.state.bandData} />
+          <BandProvider>
+            <Header />
+            <BandIndex bandData={this.state.bandData} />
+          </BandProvider>
         </div>
       );
     } else {
