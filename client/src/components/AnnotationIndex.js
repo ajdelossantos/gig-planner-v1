@@ -10,7 +10,9 @@ const AnnotationIndex = props => {
   } else {
     return (
       <div style={debugBorder}>
-        <p>Annotations</p>
+        <p>
+          <em>Annotations</em>
+        </p>
         {annotations.map(annotation => {
           const { id, pieceID, payload } = annotation;
           return (
